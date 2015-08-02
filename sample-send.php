@@ -1,3 +1,5 @@
 <?php
+$link = $_POST['linkSelect'];
 
-echo 'sent';
+
+echo $link;

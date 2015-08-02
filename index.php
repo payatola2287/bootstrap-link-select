@@ -31,7 +31,7 @@
 					<a class="dropdown-toggle selected-text" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 						Dropdown
 					</a>
-					<input type="hidden" name="link-select" />
+					<input type="hidden" name="linkSelect" />
 					<ul class="dropdown-menu link-selections" aria-labelledby="dropdownMenu1">
 						<li><a href="#" class="link-value" data-value="Action">Action</a></li>
 						<li><a href="#" class="link-value" data-value="Another action">Another action</a></li>
@@ -44,34 +44,35 @@
 	</div>
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="link-select.js"></script>
 	<script>
 		jQuery(function($){
-			$(".link-select input[type=hidden]").bind("change",function(){
-				var
-					_parentSelect = $(this).closest('.link-select'),
-					_valueName = this.name,
-					_selectValue = this.value
-				;
-				if(typeof _parentSelect.data('auto-send') != 'undefined'){
-					$.post(
-						_parentSelect.data('send-to'),
-						{_valueName:_selectValue},
-						function(serverResponse){
-							console.log(serverResponse);
-						}
-					);
-				}
-			});
-			$(".link-select .link-value").click(function(e){
-				var
-					_linkElement = $(this),
-					_selectValue = _linkElement.data('value'),
-					_displayText = _linkElement.closest(".link-select").find('.selected-text')
-				;
-				_linkElement.closest('.link-selections').siblings('input[type=hidden]').val(_selectValue).trigger('change');
-				_displayText.html(_linkElement.html());
-			});
-			
+			// $(".link-select input[type=hidden]").bind("change",function(){
+			// 	var
+			// 		_parentSelect = $(this).closest('.link-select'),
+			// 		_valueName = this.name,
+			// 		_selectValue = this.value
+			// 	;
+			// 	if(typeof _parentSelect.data('auto-send') != 'undefined'){
+			// 		$.post(
+			// 			_parentSelect.data('send-to'),
+			// 			{_valueName:_selectValue},
+			// 			function(serverResponse){
+			// 				console.log(serverResponse);
+			// 			}
+			// 		);
+			// 	}
+			// });
+			// $(".link-select .link-value").click(function(e){
+			// 	var
+			// 		_linkElement = $(this),
+			// 		_selectValue = _linkElement.data('value'),
+			// 		_displayText = _linkElement.closest(".link-select").find('.selected-text')
+			// 	;
+			// 	_linkElement.closest('.link-selections').siblings('input[type=hidden]').val(_selectValue).trigger('change');
+			// 	_displayText.html(_linkElement.html());
+			// });
+			$(".link-select").linkSelect();
 		});
 	</script>
 </body>
