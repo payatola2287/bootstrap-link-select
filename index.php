@@ -47,32 +47,11 @@
 	<script src="link-select.js"></script>
 	<script>
 		jQuery(function($){
-			// $(".link-select input[type=hidden]").bind("change",function(){
-			// 	var
-			// 		_parentSelect = $(this).closest('.link-select'),
-			// 		_valueName = this.name,
-			// 		_selectValue = this.value
-			// 	;
-			// 	if(typeof _parentSelect.data('auto-send') != 'undefined'){
-			// 		$.post(
-			// 			_parentSelect.data('send-to'),
-			// 			{_valueName:_selectValue},
-			// 			function(serverResponse){
-			// 				console.log(serverResponse);
-			// 			}
-			// 		);
-			// 	}
-			// });
-			// $(".link-select .link-value").click(function(e){
-			// 	var
-			// 		_linkElement = $(this),
-			// 		_selectValue = _linkElement.data('value'),
-			// 		_displayText = _linkElement.closest(".link-select").find('.selected-text')
-			// 	;
-			// 	_linkElement.closest('.link-selections').siblings('input[type=hidden]').val(_selectValue).trigger('change');
-			// 	_displayText.html(_linkElement.html());
-			// });
-			$(".link-select").linkSelect();
+			$(".link-select").linkSelect({
+				processResponse : function(serverResponse){
+					console.log('hehehe ' + serverResponse);
+				}
+			});
 		});
 	</script>
 </body>

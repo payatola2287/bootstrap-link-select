@@ -1,5 +1,5 @@
 <?php
-$link = $_POST['linkSelect'];
+$link = $_POST['link-select'];
 
 
-echo $link;
+echo 'pepe';
